@@ -26,7 +26,7 @@ https://azad-wolf.medium.com/evaluation-of-machine-learning-classifiers-3912e7f5
 
 On Substack:
 
-https://azadwolf.substack.com/
+https://azadwolf.substack.com/p/evaluation-of-machine-learning-classifiers
 
 
 
