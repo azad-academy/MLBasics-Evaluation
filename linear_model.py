@@ -12,7 +12,7 @@ from utils import *
 
 class LModel:
 
-    def __init__(self, X, Y , use_regression=False):
+    def __init__(self, X, Y , use_regularization=False):
         
         self.X = X
         self.num_dims = self.X.shape[1]
@@ -24,7 +24,7 @@ class LModel:
         self.G = 0
         #self.W = np.random.rand(self.num_dims+1)
         self.W = np.zeros(self.num_dims+1)
-        self.use_regression = use_regression
+        self.use_regularization = use_regularization
 
     def compute_cost(self, params=None , L=1):
         
@@ -42,7 +42,7 @@ class LModel:
         s = sigmoid(z)
         
 
-        if(self.use_regression):
+        if(self.use_regularization):
             Jreg = (L/(2*m))*np.sum(np.square(self.W[2:,]))
             J = (-1/m*(np.sum(Y*np.log2(s)+(1-Y)*np.log2(1-s)))) + Jreg
         else:
@@ -71,7 +71,7 @@ class LModel:
         z =  X @ self.W
         s = sigmoid(z)
 
-        if(self.use_regression):
+        if(self.use_regularization):
             G_reg = L/m * W
             G = 1/m*(np.transpose(X) @ (s-Y)) + G_reg
         else:
